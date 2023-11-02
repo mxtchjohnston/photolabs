@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import '../styles/HomeRoute.scss';
 import PhotoList from 'components/PhotoList';
@@ -13,7 +13,7 @@ const HomeRoute = props => {
       <TopNavigation>
         <TopicList list={props.topics}/>
       </TopNavigation>
-      <PhotoList list={props.photos}/>
+      <PhotoList list={props.photos} isFav={props.isFav} toggleFavs={props.toggleFavs}/>
     </div>
   );
 };

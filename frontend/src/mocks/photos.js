@@ -14,7 +14,7 @@ const photo1 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo2 = {
   "id": "2",
@@ -32,7 +32,7 @@ const photo2 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo3 = {
   "id": "3",
@@ -50,7 +50,7 @@ const photo3 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo4 = {
   "id": "4",
@@ -69,7 +69,7 @@ const photo4 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo5 = {
   "id": "5",
@@ -87,7 +87,7 @@ const photo5 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo6 =  {
   "id": "6",
@@ -105,7 +105,7 @@ const photo6 =  {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo7 = {
   "id": "7",
@@ -123,7 +123,7 @@ const photo7 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo8 = {
   "id": "8",
@@ -141,7 +141,7 @@ const photo8 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo9 = {
   "id": "9",
@@ -159,7 +159,7 @@ const photo9 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 const photo10 = {
   "id": "10",
@@ -177,7 +177,7 @@ const photo10 = {
     "name": "Joe Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
-}
+};
 
 
 
@@ -185,7 +185,7 @@ const photo10 = {
 const photos = [
   {
     ...photo1,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -194,7 +194,7 @@ const photos = [
   },
   {
     ...photo2,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -203,7 +203,7 @@ const photos = [
   },
   {
     ...photo3,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -212,7 +212,7 @@ const photos = [
   },
   {
     ...photo4,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -221,7 +221,7 @@ const photos = [
   },
   {
     ...photo5,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -230,7 +230,7 @@ const photos = [
   },
   {
     ...photo6,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -239,7 +239,7 @@ const photos = [
   },
   {
     ...photo7,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -248,7 +248,7 @@ const photos = [
   },
   {
     ...photo8,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -257,7 +257,7 @@ const photos = [
   },
   {
     ...photo9,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
@@ -266,13 +266,13 @@ const photos = [
   },
   {
     ...photo10,
-    similar_photos: {
+    similarPhotos: {
       photo2,
       photo3,
       photo4,
       photo5,
     }
   }
-]
+];
 
 export default photos;

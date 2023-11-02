@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import '../styles/HomeRoute.scss';
 import PhotoList from 'components/PhotoList';
@@ -10,7 +10,7 @@ import TopNavigation from 'components/TopNavigationBar';
 const HomeRoute = props => {
   return (
     <div className="home-route">
-      <TopNavigation>
+      <TopNavigation isFavPhotoExist={props.isFavPhotoExist}>
         <TopicList list={props.topics}/>
       </TopNavigation>
       <PhotoList list={props.photos} isFav={props.isFav} toggleFavs={props.toggleFavs}/>

@@ -26,10 +26,11 @@ const App = () => {
   };
 
   const isFav = id => favs.includes(id);
+  const isFavPhotoExist = favs.length > 0;
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} isFav={isFav} toggleFavs={toggleFavs}/>
+      <HomeRoute photos={photos} topics={topics} isFav={isFav} toggleFavs={toggleFavs} isFavPhotoExist={isFavPhotoExist}/>
     </div>
   );
 };

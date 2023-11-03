@@ -6,7 +6,7 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = (props) => {
   return (
     <li className="photo-list__item">
-      <PhotoFavButton isFav={props.isFav} toggleFavs={props.toggleFavs} id={props.id}/>
+      <PhotoFavButton favControl={props.favControl} id={props.id}/>
       <img className="photo-list__image" src={props.urls.regular} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={props.user.profile} />

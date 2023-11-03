@@ -10,10 +10,10 @@ import TopNavigation from 'components/TopNavigationBar';
 const HomeRoute = props => {
   return (
     <div className="home-route">
-      <TopNavigation isFavPhotoExist={props.isFavPhotoExist}>
+      <TopNavigation isFavPhotoExist={props.favControl.isFavPhotoExist}>
         <TopicList list={props.topics}/>
       </TopNavigation>
-      <PhotoList list={props.photos} isFav={props.isFav} toggleFavs={props.toggleFavs}/>
+      <PhotoList list={props.photos} favControl={props.favControl} />
     </div>
   );
 };

@@ -4,14 +4,17 @@ import React, { useState } from 'react';
 import './App.scss';
 
 import HomeRoute from 'routes/HomeRoute';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
+
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  const [favs, setFavs] = useState([]);
+  const [favs, setFavs] = useState(() => []);
+  const [modal, setModal] = useState(() => null);
 
   const toggleFavs = id => () => {
     if (favs.includes(id)) {
@@ -21,20 +24,28 @@ const App = () => {
     }
   };
 
-  const isFav = id => favs.includes(id);
-  const isFavPhotoExist = favs.length > 0;
+  const modalControl = {
+    reset: ()  => setModal(null),
+    set: props => setModal(props)
+  };
+
+  const favControl = {
+    toggleFavs,
+    isFav: id => favs.includes(id),
+    isFavPhotoExist: favs.length > 0
+  };
   
   const props = {
-    toggleFavs,
-    isFav,
-    isFavPhotoExist,
     topics,
-    photos
+    photos,
+    modalControl,
+    favControl
   };
 
   return (
     <div className="App">
       <HomeRoute {...props}/>
+      { modal ? <PhotoDetailsModal {...modal}/> : ""}
     </div>
   );
 };

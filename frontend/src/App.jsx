@@ -45,7 +45,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute {...props}/>
-      { modal ? <PhotoDetailsModal {...modal} modalControl={modalControl}/> : ""}
+      { modal ? <PhotoDetailsModal {...props} modal={modal}/> : ""}
     </div>
   );
 };

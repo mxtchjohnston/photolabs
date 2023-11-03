@@ -6,7 +6,7 @@ import PhotoListItem from "./PhotoListItem";
 const PhotoList = (props) => {
   return (
     <ul className="photo-list">
-      {props.list.map(elem => <PhotoListItem key={elem.id} {...elem} favControl={props.favControl} modalControl={props.modalControl}/>)}
+      {props.list.map(elem => <li key={elem.id}><PhotoListItem  {...elem} favControl={props.favControl} modalControl={props.modalControl}/></li>)}
     </ul>
   );
 };

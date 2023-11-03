@@ -26,7 +26,7 @@ const App = () => {
 
   const modalControl = {
     reset: ()  => setModal(null),
-    set: props => setModal(props)
+    set: props => () => setModal(props)
   };
 
   const favControl = {
@@ -45,7 +45,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute {...props}/>
-      { modal ? <PhotoDetailsModal {...modal}/> : ""}
+      { modal ? <PhotoDetailsModal {...modal} modalControl={modalControl}/> : ""}
     </div>
   );
 };

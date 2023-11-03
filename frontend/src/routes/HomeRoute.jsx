@@ -13,7 +13,7 @@ const HomeRoute = props => {
       <TopNavigation isFavPhotoExist={props.favControl.isFavPhotoExist}>
         <TopicList list={props.topics}/>
       </TopNavigation>
-      <PhotoList list={props.photos} favControl={props.favControl} />
+      <PhotoList list={props.photos} favControl={props.favControl} modalControl={props.modalControl}/>
     </div>
   );
 };

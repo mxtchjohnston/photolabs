@@ -9,12 +9,12 @@ import PhotoList from 'components/PhotoList';
 const PhotoDetailsModal = props => {
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={props.modalControl.reset}>
+      <button className="photo-details-modal__close-button" onClick={() => props.onClosePhotoDetialsModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-list__item">
         <PhotoFavButton favControl={props.favControl} id={props.id} />
-        <img className="photo-details-modal__image" src={props.urls.full}/>
+        <img className="photo-details-modal__image" src={props.modal.urls.full}/>
         <div className="photo-list__user-details">
           <img className="photo-list__user-profile" src={props.user.profile} />
           <div className="photo-details-modal__header">

@@ -13,7 +13,7 @@ const PhotoDetailsModal = props => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-list__item">
-        <PhotoFavButton {...props}/>
+        <PhotoFavButton {...props} id={props.state.modal.id}/>
         <img className="photo-details-modal__image" src={props.state.modal.urls.full}/>
         <div className="photo-list__user-details">
           <img className="photo-list__user-profile" src={props.state.modal.user.profile} />
@@ -24,7 +24,7 @@ const PhotoDetailsModal = props => {
         </div>
       </div>
       <header className='photo-details-modal__header'>Similar Photos</header>
-      <PhotoList list={Object.values(props.state.modal.similarPhotos)} {...props}/>
+      <PhotoList list={props.state.modal.similar_photos} {...props}/>
     </div>
   );
 };

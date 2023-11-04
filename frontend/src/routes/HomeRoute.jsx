@@ -13,7 +13,7 @@ const HomeRoute = props => {
       <TopNavigation {...props}>
         <TopicList {...props}/>
       </TopNavigation>
-      <PhotoList {...props}/>
+      <PhotoList list={props.state.photos} {...props}/>
     </div>
   );
 };

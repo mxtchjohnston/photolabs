@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute {...props}/>
-      {/* { modal ? <PhotoDetailsModal {...props} }/> : ""} */}
+      { props.state.modal ? <PhotoDetailsModal {...props}/> : ""}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import axios from "axios";
 
 const reducer = (state, {type, params}) => {
@@ -34,6 +34,7 @@ const reducer = (state, {type, params}) => {
 
 const useApplicationData = (initial = {favs: [], modal: null, photos: [], topics: []}) => {
   const [state, dispatch] = useReducer(reducer, initial);
+  const [topicId, setTopicId] = useState(0);
 
   const onPhotoSelect = props => dispatch({type: 'setModal', params: props});
 
@@ -45,7 +46,7 @@ const useApplicationData = (initial = {favs: [], modal: null, photos: [], topics
 
   const isFavPhotoExist = state.favs.length > 0;
 
-  const onLoadTopic = undefined;
+  const onLoadTopic = topicId => setTopicId(topicId);
 
   useEffect(() => {
     const promises = [axios.get('/api/photos'), axios.get('api/topics')];
@@ -58,6 +59,17 @@ const useApplicationData = (initial = {favs: [], modal: null, photos: [], topics
       })
       .catch(error => console.log(error.message));
   }, []);
+
+  useEffect(() => {
+    if (topicId === 0) {
+      return;
+    }
+    axios.get(`api/topics/photos/${topicId}`)
+      .then(resp => {
+        dispatch({type: 'setPhotos', params: resp.data});
+      })
+      .catch(error => console.log(error.message));
+  }, [topicId]);
 
   return {state, onPhotoSelect, updateToFavPhotoIds, isFav, isFavPhotoExist, onLoadTopic, onClosePhotoDetialsModal};
 };

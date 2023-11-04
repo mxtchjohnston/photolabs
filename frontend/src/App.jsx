@@ -15,7 +15,7 @@ import useApplicationData from 'hooks/useApplicationData';
 const App = () => {
 
   const props = useApplicationData();
-  console.log(props);
+  console.log(props.state);
   return (
     <div className="App">
       <HomeRoute {...props}/>

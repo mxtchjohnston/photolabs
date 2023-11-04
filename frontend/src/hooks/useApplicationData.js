@@ -62,6 +62,11 @@ const useApplicationData = (initial = {favs: [], modal: null, photos: [], topics
 
   useEffect(() => {
     if (topicId === 0) {
+      axios.get('/api/photos')
+      .then(resp => {
+        dispatch({type: 'setPhotos', params: resp.data});
+      })
+      .catch(error => console.log(error.message));
       return;
     }
     axios.get(`api/topics/photos/${topicId}`)

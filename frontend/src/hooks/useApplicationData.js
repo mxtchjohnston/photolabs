@@ -49,13 +49,9 @@ const useApplicationData = (initial = {favs: [], modal: null, photos: [], topics
   const onLoadTopic = topicId => setTopicId(topicId);
 
   useEffect(() => {
-    const promises = [axios.get('/api/photos'), axios.get('api/topics')];
-    Promise.all(promises)
+    axios.get('api/topics')
       .then(resp => {
-        const photos = resp[0].data;
-        const topics = resp[1].data;
-        dispatch({type: 'setPhotos', params: photos});
-        dispatch({type: 'setTopics', params: topics});
+        dispatch({type: 'setTopics', params: resp.data});
       })
       .catch(error => console.log(error.message));
   }, []);

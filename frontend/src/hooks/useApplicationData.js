@@ -72,8 +72,15 @@ const useApplicationData = (initial = {favs: [], modal: null, photos: [], topics
       .catch(error => console.log(error.message));
   }, [topicId]);
 
-  //To export, helper function called by components
-  const onPhotoSelect = props => dispatch({type: 'setModal', params: props});
+  //To export, helper function called by components{
+  const onPhotoSelect = props => {
+    if (!props.similar_photos) {
+      const similar_photos = state.photos.filter(x => x.id === props.id)[0].similar_photos;
+      dispatch({type: 'setModal', params: {...props, similar_photos }})
+      return;
+    }
+    dispatch({type: 'setModal', params: props})
+  };
 
   const onClosePhotoDetialsModal = () => dispatch({type: 'setModal', params: null});
 

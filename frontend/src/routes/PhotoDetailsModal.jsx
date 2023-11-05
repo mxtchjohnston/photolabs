@@ -18,7 +18,7 @@ const PhotoDetailsModal = props => {
         <div className="photo-list__user-details">
           <img className="photo-list__user-profile" src={props.state.modal.user.profile} />
           <div className="photo-details-modal__header">
-            <div>{props.state.modal.user.username}</div>
+            <div>{props.state.modal.user.name}</div>
             <div className="photo-list__user-location">{`${props.state.modal.location.city}, ${props.state.modal.location.country}`}</div>
           </div>
         </div>

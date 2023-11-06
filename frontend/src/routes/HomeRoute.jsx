@@ -8,6 +8,7 @@ import TopNavigation from 'components/TopNavigationBar';
 
 
 const HomeRoute = props => {
+  //TopicList is a child of TopNavigation. Just for fun
   return (
     <div className="home-route">
       <TopNavigation {...props}>

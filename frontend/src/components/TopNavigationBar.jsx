@@ -6,9 +6,13 @@ import FavBadge from './FavBadge';
 const TopNavigation = props => {
   return (
     <div className="top-nav-bar">
-      <span className="top-nav-bar__logo" onClick={() => props.onLoadTopic(0)}>PhotoLabs</span>
+      <span
+        className="top-nav-bar__logo"
+        onClick={() => props.onLoadTopic(0)}>
+        PhotoLabs
+      </span>
       {props.children}
-      <FavBadge {...props}/>
+      <FavBadge isFavPhotoExist={props.isFavPhotoExist}/>
     </div>
   );
 };

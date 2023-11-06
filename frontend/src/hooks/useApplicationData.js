@@ -5,7 +5,8 @@ const ACTIONS = {
   TOGGLE_FAV: 'toggleFav',
   SET_MODAL: 'setModal',
   SET_PHOTOS: 'setPhotos',
-  SET_TOPICS: 'setTopics'
+  SET_TOPICS: 'setTopics',
+  SHOW_FAVS: 'showFavs'
 };
 
 //The meat. the appropriate function is selected^1 from action type and executed with params^2
@@ -16,12 +17,11 @@ const reducer = (state, { type, params }) => {
   //if fav is contained, remove it, otherwise add it to favs
   actions[ACTIONS.TOGGLE_FAV] = id => {
     const stateCopy = { ...state };
-    if (state.favs.includes(id)) {
-      const newFavs = stateCopy.favs.filter(x => x !== id);
-      stateCopy.favs = newFavs;
+    if (Object.hasOwn(state.favs, id)) {
+      delete stateCopy.favs[id];
       return stateCopy;
     }
-    stateCopy.favs = stateCopy.favs.concat(id);
+    stateCopy.favs[id] = state.photos.filter(x => x.id === id)[0];
     return stateCopy;
   };
 
@@ -40,6 +40,11 @@ const reducer = (state, { type, params }) => {
     return { ...state, topics: [...topics] };
   };
 
+  actions[ACTIONS.SHOW_FAVS] = () => {
+    console.log("clicked");
+    return {...state, showFavs: !state.showFavs};
+  };
+
   //select an action based on the type, check if action is valid, apply params or 'payload' to that function.
   const fn = actions[type]; //^1
   if (!fn) {
@@ -49,10 +54,10 @@ const reducer = (state, { type, params }) => {
   return fn(params); //^2
 };
 
-const useApplicationData = (initial = { favs: [], modal: null, photos: [], topics: [] }) => {
+const useApplicationData = (initial = { favs: {}, modal: null, photos: [], topics: [], showFavs: false }) => {
 
   const [state, dispatch] = useReducer(reducer, initial);
-
+  
   //Using useState
   const [topicId, setTopicId] = useState(0); //Used for topic selection
 
@@ -96,13 +101,15 @@ const useApplicationData = (initial = { favs: [], modal: null, photos: [], topic
 
   const updateToFavPhotoIds = id => dispatch({ type: ACTIONS.TOGGLE_FAV, params: id });
 
-  const isFav = id => state.favs.includes(id);
+  const isFav = id => Object.hasOwn(state.favs, id);
 
-  const isFavPhotoExist = state.favs.length > 0;
+  const isFavPhotoExist = Object.keys(state.favs).length > 0;
 
   const onLoadTopic = topicId => setTopicId(topicId);
 
-  return { state, onPhotoSelect, updateToFavPhotoIds, isFav, isFavPhotoExist, onLoadTopic, onClosePhotoDetialsModal };
+  const showFavs = () => dispatch({type: ACTIONS.SHOW_FAVS});
+
+  return { state, onPhotoSelect, updateToFavPhotoIds, isFav, isFavPhotoExist, onLoadTopic, onClosePhotoDetialsModal, showFavs };
 };
 
 export default useApplicationData;

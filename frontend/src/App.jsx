@@ -5,6 +5,7 @@ import './App.scss';
 
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import FavsModal from 'routes/FavsModal';
 
 // import photos from 'mocks/photos';
 // import topics from 'mocks/topics';
@@ -15,11 +16,12 @@ import useApplicationData from 'hooks/useApplicationData';
 const App = () => {
 
   const props = useApplicationData();
-  
+  console.log(props.state);
   return (
     <div className="App">
       <HomeRoute {...props}/>
       { props.state.modal ? <PhotoDetailsModal {...props}/> : ""}
+      { props.state.showFavs ? <FavsModal {...props}/> : ""}
     </div>
   );
 };

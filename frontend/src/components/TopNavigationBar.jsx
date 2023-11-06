@@ -12,7 +12,7 @@ const TopNavigation = props => {
         PhotoLabs
       </span>
       {props.children}
-      <FavBadge isFavPhotoExist={props.isFavPhotoExist}/>
+      <FavBadge isFavPhotoExist={props.isFavPhotoExist} showFavs={props.showFavs}/>
     </div>
   );
 };

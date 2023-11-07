@@ -2,15 +2,16 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
-import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 
 
 const FavsModal = props => {
   return (
     <div className="photo-details-modal">
+      <button className="photo-details-modal__close-button" onClick={props.showFavs}>
+        <img src={closeSymbol} alt="close symbol" />
+      </button>
       <header className='photo-details-modal__header'>Favs</header>
-      {console.log(Object.values(props.state.favs))}
       <PhotoList list={Object.values(props.state.favs)} {...props}/>
     </div>
   );
